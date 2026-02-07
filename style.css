@@ -1,0 +1,16 @@
+.header .max_width {
+  box-sizing: border-box;
+  padding: 0 72px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .max_width {
+  box-sizing: border-box;
+  padding: 72px;
+}
+
+.footer .max_width {
+  box-sizing: border-box;
+  padding: 0 72px;
+}

@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  color: #fdc81a;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 .header {
   width: 100%;
   height: 100px;
-  background: #565252;
+  background: #ef5350;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +23,7 @@ body {
 .main {
   width: 100%;
   flex: 1;
-  background: #bab9b9;
+  background: #2f2f2f;
   display: flex;
   justify-content: center;
 }
@@ -30,7 +31,7 @@ body {
 .footer {
   width: 100%;
   height: 100px;
-  background: #565252;
+  background: #ef5350;
   display: flex;
   justify-content: center;
   align-items: center;
