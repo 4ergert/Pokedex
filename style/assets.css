@@ -1,5 +1,47 @@
 input {
+  height: 32px;
   border-radius: 8px;
   padding: 0 16px;
   color: #2f2f2f;
+  font-size: 16px;
+  font-weight: 500;
+  outline: 0;
+  border: 2px solid #2f2f2f;
+}
+
+/* Logo */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ring {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border: 6px solid #ffffff;
+  border-radius: 50%;
+}
+
+.o {
+  width: 8px;
+  height: 8px;
+  border: 6px solid #ffffff;
+  border-radius: 50%;
+}
+
+.slash_left {
+  width: 14px;
+  height: 6px;
+  background-color: #fff;
+}
+
+.slash_right {
+  width: 14px;
+  height: 6px;
+  background-color: #fff;
 }
