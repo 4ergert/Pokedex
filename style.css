@@ -12,13 +12,14 @@
 
 .main .max_width {
   box-sizing: border-box;
-  padding: 72px;
+  padding: 64px 16px;
 }
 
 #content {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 32px;
 }
 
 .footer .max_width {

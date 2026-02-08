@@ -1,11 +1,73 @@
 .card {
+  display: flex;
+  flex-direction: column;
   width: 300px;
-  padding: 16px;
-  border: 3px solid #ef5350;
+  padding: 24px;
   border-radius: 8px;
+  gap: 32px;
+}
+
+.card h1 {
+  font-weight: 700;
+  color: #fff;
 }
 
 .card img {
   width: 250px;
   height: 250px;
+}
+
+.types {
+  display: flex;
+  justify-content: space-between;
+}
+
+.type_one {
+  width: 100px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 20px;
+  background: #ffffff34;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.type_two {
+  width: 100px;
+  text-align: center;
+  padding: 6px;
+  border-radius: 20px;
+  background: #ffffff34;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.bg_grass, .bg_poison, .bg_fairy {
+  background: #00cc41;
+}
+
+.bg_fire {
+  background: #ef5350;
+}
+
+.bg_water {
+  background: #378de9;
+}
+
+.bg_bug, .bg_fighting {
+  background: #f300b2;
+}
+
+.bg_normal {
+  background: #bbf8ff;
+}
+
+.bg_electric, .bg_psychic {
+  background: #fffb00;
+}
+
+.bg_ground, .bg_rock {
+  background: #c17400;
 }
