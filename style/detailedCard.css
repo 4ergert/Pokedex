@@ -8,6 +8,7 @@
   /* 320 x 568px */
   border-radius: 16px;
   border: 0px;
+  box-shadow: 0px 0px 12px #ffffffaa;
 }
 
 .closeButtonSpace {
@@ -21,6 +22,9 @@
   border: 3px solid #fff;
   border-radius: 16px;
   box-sizing: border-box;
+}
+
+.upperCardSpace {
   padding: 16px;
 }
 
@@ -30,7 +34,43 @@
   text-shadow: 0 0 5px #000000;
 }
 
+.imageSpace {
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
 .detailedCard img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
+}
+
+.detailSpace {
+  height: 292px;
+  background: #ffffff71;
+  border-radius: 16px;
+}
+
+.navDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.navDetails button {
+  border: none;
+  padding: 4px;
+  color: #fff;
+  background: none;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 0 0 4px #000000;
+  border-radius: 8px;
+}
+
+.navDetails button:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }

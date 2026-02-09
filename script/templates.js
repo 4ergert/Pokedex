@@ -28,19 +28,26 @@ function getTemplateDetailedPokemon(index) {
 
   return `
   <section class="detailedCard bg_${preLoadCase[index].types[0].type.name}">
-    <header>
-    <h1>${pokemoName}</h1>
-    </header>
-    <section>
-    <img src="${preLoadCase[index].sprites.other.dream_world.front_default}" alt="">
-    </section>
-    <footer>
-    
+    <div class="upperCardSpace">
+      <header>
+        <h1>${pokemoName}</h1>
+      </header>
+      <section class="imageSpace">
+        <img src="${preLoadCase[index].sprites.other.dream_world.front_default}" alt="">
+      </section>
+    </div>
+    <footer class="detailSpace">
+      <nav class="navDetails">
+        <button>About</button>
+        <button>Base Stats</button>
+        <button>Evolution</button>
+        <button>Moves</button>
+      </nav>
     </footer>
-    </section>
-    `
+  </section>`
 }
 
     // <div class="closeButtonSpace">
     //   <button id="closeButton" type="button" onclick="closeDetailedPokemonCard()">X</button>
     // </div>
+
