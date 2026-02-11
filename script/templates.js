@@ -108,15 +108,16 @@ function baseStatesDetails(index) {
 }
 
 function evolutionDetails() {
-  let evoOne = evoPreLoad.chain.species.name.replace(/^./, char => char.toUpperCase());
-  let evoTwo = evoPreLoad.chain.evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
-  let evoThree = evoPreLoad.chain.evolves_to[0].evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
-
   return `
     <section class="evolutionSpace">
+      <img src="${evoOneImg}" alt="">
       <h1>${evoOne}</h1>
+      <img src="${evoTwoImg}" alt="">
       <h1>${evoTwo}</h1>
-      <h1>${evoThree}</h1>
+      <div id="evoThreeSpace">
+        <img src="${evoThreeImg}" alt="">
+        <h1>${evoThree}</h1>
+      </div>
     </section>
-  `
+    `
 }
