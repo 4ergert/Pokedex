@@ -91,14 +91,17 @@ async function renderEvolutionDetails(index) {
 
   refImg.style.display = "none";
   refDetailSpace.style.height = "526px"
-  await fetchEvolution(index)
-  index +=1;
+
+  refEvoURL = await fetchEvolution(index)
   refDetails.innerHTML = evolutionDetails(index);
 }
 
 async function fetchEvolution(index) {
-  index += 1;
-  let responseEvo = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${index}/`);
+  let refEvoChainURL = await fetch(preLoadCase[index].species.url);
+  let refUrlAsJSON = await refEvoChainURL.json();
+  let refEvoURL = refUrlAsJSON.evolution_chain.url;
+
+  let responseEvo = await fetch(`${refEvoURL}`);
   let responseEvoAsJson = await responseEvo.json();
 
   evoPreLoad = (responseEvoAsJson);
