@@ -93,7 +93,7 @@ async function renderEvolutionDetails(index) {
   refDetailSpace.style.height = "526px"
 
   refEvoURL = await fetchEvolution(index)
-  refDetails.innerHTML = evolutionDetails(index);
+  refDetails.innerHTML = evolutionDetails();
 }
 
 async function fetchEvolution(index) {

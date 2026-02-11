@@ -107,7 +107,7 @@ function baseStatesDetails(index) {
   `
 }
 
-function evolutionDetails(index) {
+function evolutionDetails() {
   let evoOne = evoPreLoad.chain.species.name.replace(/^./, char => char.toUpperCase());
   let evoTwo = evoPreLoad.chain.evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
   let evoThree = evoPreLoad.chain.evolves_to[0].evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
