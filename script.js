@@ -1,7 +1,7 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
 let evoPreLoad;
-let amountOfPokemons = 10;
+let amountOfPokemons = 20;
 let checkPromise
 let evoOne;
 let evoTwo;
@@ -56,6 +56,9 @@ function render() {
 function showDetailedPokemonCard(index) {
   const refPokemonCard = document.getElementById("detailedPokemonCard");
 
+  location.href = `#`;
+  location.href = `#${index}`;
+  document.getElementById("body").style.overflow = "hidden";
   refPokemonCard.showModal();
   refPokemonCard.innerHTML = getTemplateDetailedPokemon(index);
   renderAboutDetails(index);
@@ -92,8 +95,24 @@ function renderBaseStatesDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "flex";
-  refDetailSpace.style.height = "292px"
+  refDetailSpace.style.height = "292px";
   refDetails.innerHTML = baseStatesDetails(index);
+  renderBeam(index);
+}
+
+function renderBeam(index) {
+  let lengthHP = preLoadCase[index].stats[0].base_stat * 1.5;
+  document.getElementById("beamHP").style.width = `${lengthHP}px`;
+  let lengthAttack = preLoadCase[index].stats[1].base_stat * 1.5;
+  document.getElementById("beamAttack").style.width = `${lengthAttack}px`;
+  let lengthDefense = preLoadCase[index].stats[2].base_stat * 1.5;
+  document.getElementById("beamDef").style.width = `${lengthDefense}px`;
+  let lengthSpAtk = preLoadCase[index].stats[3].base_stat * 1.5;
+  document.getElementById("beamSpAtk").style.width = `${lengthSpAtk}px`;
+  let lengthspDef = preLoadCase[index].stats[4].base_stat * 1.5;
+  document.getElementById("beamSpDef").style.width = `${lengthspDef}px`;
+  let Speed = preLoadCase[index].stats[5].base_stat * 1.5;
+  document.getElementById("beamSpeed").style.width = `${Speed}px`;
 }
 
 // render evolution
@@ -103,6 +122,7 @@ async function renderEvolutionDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "none";
+  refDetails.innerHTML = 'Evolution is rendering';
   refDetailSpace.style.height = "526px"
 
   refEvoURL = await fetchEvolution(index)
@@ -199,6 +219,7 @@ function backdropClose(dialog) {
   dialog.addEventListener('click', (e) => {
     if (e.target === dialog) {
       dialog.close();
+      document.getElementById("body").style.overflow = "scroll";
     }
   });
 }

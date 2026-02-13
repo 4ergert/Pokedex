@@ -1,8 +1,8 @@
 #detailedPokemonCard {
   transform: translate(-50%, -50%);
-  position: absolute;
-  left: 50%;
+  position: fixed;
   top: 50%;
+  left: 50%;
   width: 340px;
   height: 600px;
   /* 320 x 568px */
@@ -80,25 +80,39 @@
 
 #genDetails {
   padding: 0 16px;
+  font-size: 24px;
+  color:#fff
 }
 
 th {
   text-align: left;
-  width: 80px;
+  width: 90px;
   height: 24px;
-  color: #fdfdfd;
+  color: #303030;
   font-size: 16px;
-  font-weight: 555;
-  text-shadow: 0 0 2px #000000;
+  font-weight: 700;
 }
 
 td {
   text-align: left;
+  width: 45px;
   height: 24px;
-  color: #fdfdfd;
+  color: #303030;
   font-size: 16px;
   font-weight: 555;
-  text-shadow: 0 0 2px #000000;
+}
+
+#beamHP,
+#beamAttack,
+#beamDef,
+#beamSpAtk,
+#beamSpDef,
+#beamSpeed {
+  width: 150px;
+  height: 8px;
+  background: #1ec500;
+  border-radius: 6px;
+  box-shadow: 0 0 1px #000000;
 }
 
 .evolutionSpace {

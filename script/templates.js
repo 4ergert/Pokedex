@@ -2,7 +2,7 @@ function getCardTemplate(index) {
   let pokemoName = preLoadCase[index].name.replace(/^./, char => char.toUpperCase());
 
   return ` 
-    <section class="card bg_${preLoadCase[index].types[0].type.name}" onclick="showDetailedPokemonCard(${index})">
+    <section id="${index}" class="card bg_${preLoadCase[index].types[0].type.name}" onclick="showDetailedPokemonCard(${index})">
       <header>
         <h1>${pokemoName}</h1>
         <div class="cardNumber">#${preLoadCase[index].id}</div>
@@ -62,11 +62,11 @@ function aboutDetails(index) {
       </tr>
       <tr>
         <th>Height</th>
-        <td>${preLoadCase[index].height}</td>
+        <td>${preLoadCase[index].height} inch</td>
       </tr>
       <tr>
         <th>Weight</th>
-        <td>${preLoadCase[index].weight}</td>
+        <td>${preLoadCase[index].weight} Ib</td>
       </tr>
       <tr>
         <th>Ability</th>
@@ -82,26 +82,32 @@ function baseStatesDetails(index) {
       <tr>
         <th>HP</th>
         <td>${preLoadCase[index].stats[0].base_stat}</td>
+        <td><div id="beamHP"></div></td>
       </tr>
       <tr>
         <th>Attack</th>
         <td>${preLoadCase[index].stats[1].base_stat}</td>
+        <td><div id="beamAttack"></div></td>
       </tr>
       <tr>
         <th>Defense</th>
         <td>${preLoadCase[index].stats[2].base_stat}</td>
+        <td><div id="beamDef"></div></td>
       </tr>
       <tr>
         <th>Sp.Atk</th>
         <td>${preLoadCase[index].stats[3].base_stat}</td>
+        <td><div id="beamSpAtk"></div></td>
       </tr>
       <tr>
         <th>Sp.Def</th>
         <td>${preLoadCase[index].stats[4].base_stat}</td>
+        <td><div id="beamSpDef"></div></td>
       </tr>
       <tr>
         <th>Speed</th>
         <td>${preLoadCase[index].stats[5].base_stat}</td>
+        <td><div id="beamSpeed"></div></td>
       </tr>
     </table>
   `
