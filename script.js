@@ -42,24 +42,18 @@ async function getPromise() {
       };
     }, 500);
   });
-}
+};
 
 function render() {
   for (let preLoadCaseIndex = 0; preLoadCaseIndex < preLoadCase.length; preLoadCaseIndex++) {
     document.getElementById("content").innerHTML += getCardTemplate(preLoadCaseIndex);
-    pokemonNames.push(preLoadCase[preLoadCaseIndex].name)
+    pokemonNames.push(preLoadCase[preLoadCaseIndex].name);
     if (preLoadCase[preLoadCaseIndex].types.length > 1) {
       document.getElementById(`types_${preLoadCaseIndex}`).innerHTML += getTemplateSecType(preLoadCaseIndex);
     };
   };
   renderPokemonNames()
 };
-
-function renderPokemonNames() {
-  for (let pokemonNameIndex = 0; pokemonNameIndex < pokemonNames.length; pokemonNameIndex++) {
-        
-  }
-}
 
 function showDetailedPokemonCard(index) {
   const refPokemonCard = document.getElementById("detailedPokemonCard");
@@ -71,7 +65,7 @@ function showDetailedPokemonCard(index) {
   refPokemonCard.innerHTML = getTemplateDetailedPokemon(index);
   renderAboutDetails(index);
   backdropClose(refPokemonCard);
-}
+};
 
 // render about Details
 async function renderAboutDetails(index) {
@@ -80,21 +74,21 @@ async function renderAboutDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "flex";
-  refDetailSpace.style.height = "292px"
+  refDetailSpace.style.height = "292px";
   refDetails.innerHTML = aboutDetails(index);
-  renderAbilities(index)
+  renderAbilities(index);
   // refEvoURL = await fetchEvolution(index)
   // await tryCatchEvoTree()
-}
+};
 
 function renderAbilities(index) {
   const refAbility = document.getElementById("ability");
   if (preLoadCase[index].abilities.length > 1) {
     for (let abilitiesIndex = 0; abilitiesIndex < preLoadCase[index].abilities.length; abilitiesIndex++) {
       refAbility.innerHTML += preLoadCase[index].abilities[abilitiesIndex].ability.name + '<br>';
-    }
-  }
-}
+    };
+  };
+};
 
 // render base states details
 function renderBaseStatesDetails(index) {
@@ -131,13 +125,13 @@ async function renderEvolutionDetails(index) {
 
   refImg.style.display = "none";
   refDetails.innerHTML = 'Evolution is rendering';
-  refDetailSpace.style.height = "526px"
+  refDetailSpace.style.height = "526px";
 
-  refEvoURL = await fetchEvolution(index)
-  await tryCatchEvoTree()
+  refEvoURL = await fetchEvolution(index);
+  await tryCatchEvoTree();
   refDetails.innerHTML = evolutionDetails();
-  showEvo()
-}
+  showEvo();
+};
 
 async function fetchEvolution(index) {
   let refEvoChainURL = await fetch(preLoadCase[index].species.url);
@@ -148,7 +142,7 @@ async function fetchEvolution(index) {
   let responseEvoAsJson = await responseEvo.json();
 
   evoPreLoad = (responseEvoAsJson);
-}
+};
 
 async function tryCatchEvoTree() {
   try {
@@ -166,15 +160,15 @@ async function tryCatchEvoTree() {
   } catch (error) {
     if (evoPreLoad.chain.evolves_to.length != 1) isSecEvoThree = false;
     isLastEvoThree = false;
-  }
-}
+  };
+};
 
 function showEvo() {
   let evoTwoDisplay = isSecEvoThree == true ? "flex" : "none";
   document.getElementById("evoTwoSpace").style.display = evoTwoDisplay;
   let evoThreeDisplay = isLastEvoThree == true ? "flex" : "none";
   document.getElementById("evoThreeSpace").style.display = evoThreeDisplay;
-}
+};
 
 async function getPromiseForEvoThree(checkPromise) {
   return new Promise((resolve, reject) => {
@@ -186,7 +180,7 @@ async function getPromiseForEvoThree(checkPromise) {
       };
     }, 500);
   });
-}
+};
 
 async function getEvoOne() {
   evoOne = evoPreLoad.chain.species.name.replace(/^./, char => char.toUpperCase());
@@ -228,24 +222,56 @@ function backdropClose(dialog) {
     if (e.target === dialog) {
       dialog.close();
       document.getElementById("body").style.overflow = "scroll";
-    }
+    };
   });
-}
+};
 
-//serch bar
+//serch bar 
+function renderPokemonNames() {
+  let refPokemonNames = document.getElementById("pokemonNames");
+  for (let pokemonNameIndex = 0; pokemonNameIndex < pokemonNames.length; pokemonNameIndex++) {
+    refPokemonNames.innerHTML += `
+      <li><a href="#">${preLoadCase[pokemonNameIndex].name}</a></li>    
+    `
+  };
+};
+
+//(https://codepen.io/jaredgroff/pen/bGxJaXe)
 function searchPokemon() {
   let input, filter, ul, li, a, i, txtValue;
   input = document.querySelector("#searchPokemon");
   filter = input.value.toUpperCase();
-  ul = document.querySelector(".card-container");
+  ul = document.querySelector(".pokemon_names");
   li = ul.getElementsByTagName("li");
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
+  if (input.value.length < 3) {
+    document.getElementById("content").innerHTML = "";
+    ul.style.display = "none";
+    render();
   }
+  searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue);
 }
+
+function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
+  if (input.value.length > 2) {
+    ul.style.display = "flex";
+    document.getElementById("content").innerHTML = "";
+    for (i = 0; i < li.length; i++) {
+      a = li[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        li[i].style.display = "";
+        renderPokemonCards(i);
+      } else {
+        li[i].style.display = "none";
+      };
+    };
+  };
+};
+
+function renderPokemonCards(i) {
+  document.getElementById("content").innerHTML += getCardTemplate(i);
+  pokemonNames.push(preLoadCase[i].name)
+  if (preLoadCase[i].types.length > 1) {
+    document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
+  };
+};

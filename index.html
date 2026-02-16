@@ -27,13 +27,13 @@
         <div class="ring"><div class="slash_left"></div><div class="o"></div><div class="slash_right"></div></div>
         <h1>Pokedex</h1>
       </section>
-      <input type="text" id="searchPokemon" onkeyup="searchPokemon()" placeholder="search for Pokemon..." title="Type in a Pokemon" aria-label="search">
+      <section class="searchbar">
+        <input type="text" id="searchPokemon" onkeyup="searchPokemon()" placeholder="search for Pokemon..." title="Type in a Pokemon" aria-label="search">
+        <ul id="pokemonNames" class="pokemon_names"></ul>
+      </section>
     </div>
   </header>
 
-  <ul id="pokemonNames" class="pokemon_names">
-
-  </ul>
 
   <main class="main">
     <div class="max_width">
