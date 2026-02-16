@@ -53,3 +53,133 @@ input {
   border: 0;
   color: #2f2f2f;
 }
+
+/* loadingball (https://codepen.io/sr1s/pen/wvXpzyX) */
+:root {
+  --color: #2f2f2f00;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+}
+
+.pkm_ball_loading {
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(#cb0905 50%, #ffffff 50%);
+  border-radius: 9999px;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 6%;
+  grid-column-gap: 0%;
+}
+
+.pkm_ball_loading::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: 
+    radial-gradient(rgb(0, 0, 0) 15%, var(--color) 15%, var(--color) 22%, transparent 22%),
+    linear-gradient(transparent 46%, var(--color) 46%, var(--color) 54%, transparent 54%);
+}
+
+.pkm_ball_loading > div {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+
+.pkm_ball_loading > div::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  background: var(--color);
+}
+
+.pkm_ball_loading > div:nth-child(1)::before {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform-origin: bottom right;
+  transform: rotate(-45deg);
+}
+
+.pkm_ball_loading > div:nth-child(2)::before {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom left;
+  transform: rotate(45deg);
+}
+
+.pkm_ball_loading > div:nth-child(3)::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform-origin: top right;
+  transform: rotate(45deg);
+}
+
+.pkm_ball_loading > div:nth-child(4)::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+}
+
+.pkm_ball_loading {
+  animation: rotate-clockwise-360 3s linear infinite;
+}
+
+.pkm_ball_loading > div:nth-child(1)::before,
+.pkm_ball_loading > div:nth-child(4)::before {
+  animation: rotate-anticlockwise-90 1.8s linear infinite;
+}
+
+.pkm_ball_loading > div:nth-child(2)::before,
+.pkm_ball_loading > div:nth-child(3)::before {
+  animation: rotate-clockwise-90 1.8s linear infinite;
+}
+
+@keyframes rotate-clockwise-360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-clockwise-90 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rotate-anticlockwise-90 {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -49,10 +49,6 @@ function getTemplateDetailedPokemon(index) {
   </section>`
 }
 
-// <div class="closeButtonSpace">
-//   <button id="closeButton" type="button" onclick="closeDetailedPokemonCard()">X</button>
-// </div>
-
 function aboutDetails(index) {
   return `
     <table>
@@ -132,4 +128,17 @@ function evolutionDetails() {
       </div>
     </section>
     `
+}
+
+function loadingBall() {
+  return `
+    <div class="container">
+      <div class="pkm_ball_loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  `
 }

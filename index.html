@@ -15,20 +15,25 @@
   <link rel="stylesheet" href="./style.css">
   <script src="./script/templates.js"></script>
   <script src="./script.js"></script>
-  
+
 </head>
 
 <body id="body" onload="fetchThenRender()">
-  
+
   <header class="header">
     <div class="max_width">
-      
+
       <section class="logo">
-        <div class="ring"><div class="slash_left"></div><div class="o"></div><div class="slash_right"></div></div>
+        <div class="ring">
+          <div class="slash_left"></div>
+          <div class="o"></div>
+          <div class="slash_right"></div>
+        </div>
         <h1>Pokedex</h1>
       </section>
       <section class="searchbar">
-        <input type="text" id="searchPokemon" onkeyup="searchPokemon()" placeholder="search for Pokemon..." title="Type in a Pokemon" aria-label="search">
+        <input type="text" id="searchPokemon" onkeyup="searchPokemon()" placeholder="search for Pokemon..."
+          title="Type in a Pokemon" aria-label="search">
         <ul id="pokemonNames" class="pokemon_names"></ul>
       </section>
     </div>
@@ -37,30 +42,41 @@
 
   <main class="main">
     <div class="max_width">
-      
+
+
+
       <section id="content">
+        <!-- loadingball -->
+        <div class="container">
+          <div class="pkm_ball_loading">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
         <!-- gen Pokemon -->
       </section>
 
       <section class="renderMorePokemons">
         <button class="morePokemonsButton" type="button" onclick="fetchThenRender()">show more Pokemons</button>
       </section>
-      
+
     </div>
   </main>
-  
+
   <footer class="footer">
     <div class="max_width">
-      
+
       <h4>Footer</h4>
 
     </div>
   </footer>
-  
+
   <dialog id="detailedPokemonCard">
     <!-- gen detailed pokemon card -->
   </dialog>
-  
+
 </body>
 
 

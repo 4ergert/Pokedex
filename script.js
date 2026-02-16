@@ -1,7 +1,7 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
 let evoPreLoad;
-let amountOfPokemons = 12;
+let amountOfPokemons = 39;
 let checkPromise
 let evoOne;
 let evoTwo;
@@ -77,8 +77,6 @@ async function renderAboutDetails(index) {
   refDetailSpace.style.height = "292px";
   refDetails.innerHTML = aboutDetails(index);
   renderAbilities(index);
-  // refEvoURL = await fetchEvolution(index)
-  // await tryCatchEvoTree()
 };
 
 function renderAbilities(index) {
@@ -124,7 +122,7 @@ async function renderEvolutionDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "none";
-  refDetails.innerHTML = 'Evolution is rendering';
+  refDetails.innerHTML = loadingBall();
   refDetailSpace.style.height = "526px";
 
   refEvoURL = await fetchEvolution(index);
