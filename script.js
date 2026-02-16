@@ -1,7 +1,8 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
+let pokemonNames = [];
 let evoPreLoad;
-let amountOfPokemons = 20;
+let amountOfPokemons = 12;
 let checkPromise
 let evoOne;
 let evoTwo;
@@ -46,12 +47,19 @@ async function getPromise() {
 function render() {
   for (let preLoadCaseIndex = 0; preLoadCaseIndex < preLoadCase.length; preLoadCaseIndex++) {
     document.getElementById("content").innerHTML += getCardTemplate(preLoadCaseIndex);
-
+    pokemonNames.push(preLoadCase[preLoadCaseIndex].name)
     if (preLoadCase[preLoadCaseIndex].types.length > 1) {
       document.getElementById(`types_${preLoadCaseIndex}`).innerHTML += getTemplateSecType(preLoadCaseIndex);
     };
   };
+  renderPokemonNames()
 };
+
+function renderPokemonNames() {
+  for (let pokemonNameIndex = 0; pokemonNameIndex < pokemonNames.length; pokemonNameIndex++) {
+        
+  }
+}
 
 function showDetailedPokemonCard(index) {
   const refPokemonCard = document.getElementById("detailedPokemonCard");
@@ -222,4 +230,22 @@ function backdropClose(dialog) {
       document.getElementById("body").style.overflow = "scroll";
     }
   });
+}
+
+//serch bar
+function searchPokemon() {
+  let input, filter, ul, li, a, i, txtValue;
+  input = document.querySelector("#searchPokemon");
+  filter = input.value.toUpperCase();
+  ul = document.querySelector(".card-container");
+  li = ul.getElementsByTagName("li");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
 }
