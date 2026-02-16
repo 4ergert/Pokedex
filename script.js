@@ -1,6 +1,5 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
-let pokemonNames = [];
 let evoPreLoad;
 let amountOfPokemons = 12;
 let checkPromise
@@ -19,7 +18,7 @@ async function fetchThenRender() {
     await fechtDataJSON();
     await getPromise();
     render();
-    // renderPokemonNames()
+    renderPokemonNames()
   } catch (error) {
     console.error(error);
   }
@@ -50,7 +49,6 @@ function render() {
   document.getElementById("content").innerHTML ='';
   for (let preLoadCaseIndex = 0; preLoadCaseIndex < preLoadCase.length; preLoadCaseIndex++) {
     document.getElementById("content").innerHTML += getCardTemplate(preLoadCaseIndex);
-    pokemonNames.push(preLoadCase[preLoadCaseIndex].name);
     if (preLoadCase[preLoadCaseIndex].types.length > 1) {
       document.getElementById(`types_${preLoadCaseIndex}`).innerHTML += getTemplateSecType(preLoadCaseIndex);
     };
@@ -231,7 +229,8 @@ function backdropClose(dialog) {
 //serch bar 
 function renderPokemonNames() {
   let refPokemonNames = document.getElementById("pokemonNames");
-  for (let pokemonNameIndex = 0; pokemonNameIndex < pokemonNames.length; pokemonNameIndex++) {
+  refPokemonNames.innerHTML = '';
+  for (let pokemonNameIndex = 0; pokemonNameIndex < preLoadCase.length; pokemonNameIndex++) {
     refPokemonNames.innerHTML += `
       <li><a href="#">${preLoadCase[pokemonNameIndex].name}</a></li>    
     `
@@ -272,7 +271,6 @@ function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
 
 function renderPokemonCards(i) {
   document.getElementById("content").innerHTML += getCardTemplate(i);
-  pokemonNames.push(preLoadCase[i].name)
   if (preLoadCase[i].types.length > 1) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
   };
