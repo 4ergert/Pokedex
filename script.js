@@ -19,6 +19,7 @@ async function fetchThenRender() {
     await fechtDataJSON();
     await getPromise();
     render();
+    renderPokemonNames()
   } catch (error) {
     console.error(error);
   }
@@ -52,7 +53,6 @@ function render() {
       document.getElementById(`types_${preLoadCaseIndex}`).innerHTML += getTemplateSecType(preLoadCaseIndex);
     };
   };
-  renderPokemonNames()
 };
 
 function showDetailedPokemonCard(index) {
