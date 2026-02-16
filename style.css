@@ -12,7 +12,7 @@
 
 .main .max_width {
   box-sizing: border-box;
-  padding: 64px 16px;
+  padding: 64px 16px 0 16px;
 }
 
 #content {
@@ -31,4 +31,20 @@
   display: none;
   flex-direction: column;
   position: absolute;
+}
+
+.renderMorePokemons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+.morePokemonsButton {
+  background: #3761a8;
+  color: #feca1b;
+  padding: 8px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
 }

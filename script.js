@@ -19,14 +19,15 @@ async function fetchThenRender() {
     await fechtDataJSON();
     await getPromise();
     render();
-    renderPokemonNames()
+    // renderPokemonNames()
   } catch (error) {
     console.error(error);
   }
 };
 
 async function fechtDataJSON() {
-  for (let pokemonIndex = 1; pokemonIndex <= amountOfPokemons; pokemonIndex++) {
+  let more = preLoadCase.length + amountOfPokemons 
+  for (let pokemonIndex = 1 + preLoadCase.length; pokemonIndex <= more; pokemonIndex++) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`);
     let responseAsJson = await response.json();
     preLoadCase.push(responseAsJson);
@@ -36,7 +37,7 @@ async function fechtDataJSON() {
 async function getPromise() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (preLoadCase.length != amountOfPokemons) {
+      if (preLoadCase.length == 0) {
         reject("it don't work");
       } else {
         resolve("it works");
@@ -46,6 +47,7 @@ async function getPromise() {
 };
 
 function render() {
+  document.getElementById("content").innerHTML ='';
   for (let preLoadCaseIndex = 0; preLoadCaseIndex < preLoadCase.length; preLoadCaseIndex++) {
     document.getElementById("content").innerHTML += getCardTemplate(preLoadCaseIndex);
     pokemonNames.push(preLoadCase[preLoadCaseIndex].name);
