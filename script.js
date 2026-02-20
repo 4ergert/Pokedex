@@ -75,6 +75,7 @@ async function renderAboutDetails(index) {
 
   refImg.style.display = "flex";
   refDetailSpace.style.height = "292px";
+  refDetails.style.justifyContent = "start";
   refDetails.innerHTML = aboutDetails(index);
   renderAbilities(index);
 };
@@ -96,6 +97,7 @@ function renderBaseStatesDetails(index) {
 
   refImg.style.display = "flex";
   refDetailSpace.style.height = "292px";
+  refDetails.style.justifyContent = "start";
   refDetails.innerHTML = baseStatesDetails(index);
   renderBeam(index);
 }
@@ -123,6 +125,7 @@ async function renderEvolutionDetails(index) {
 
   refImg.style.display = "none";
   refDetails.innerHTML = loadingBall();
+  refDetails.style.justifyContent = "center";
   refDetailSpace.style.height = "526px";
 
   refEvoURL = await fetchEvolution(index);
