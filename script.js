@@ -276,3 +276,6 @@ function renderPokemonCards(i) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
   };
 };
+
+// Arrows
+

@@ -80,7 +80,6 @@
 
 #genDetails {
   display: flex;
-  align-items: center;
   height: 100%;
   padding: 0 16px;
   font-size: 24px;
@@ -119,7 +118,6 @@ td {
 }
 
 .evolutionSpace {
-  /* height: 450px ; */
   display: flex;
   flex-direction: column;
   align-items: center;

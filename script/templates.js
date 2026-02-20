@@ -27,6 +27,14 @@ function getTemplateDetailedPokemon(index) {
   let pokemoName = preLoadCase[index].name.replace(/^./, char => char.toUpperCase());
 
   return `
+  <div class="arrow_left">
+    <div class="arrow-top"></div>
+    <div class="arrow-bottom"></div>
+  </div>
+  <div class="arrow_right">
+    <div class="arrow-top"></div>
+    <div class="arrow-bottom"></div>
+  </div>
   <section class="detailedCard bg_${preLoadCase[index].types[0].type.name}">
     <div class="upperCardSpace">
       <header>
