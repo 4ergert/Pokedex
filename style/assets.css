@@ -202,19 +202,19 @@ input {
 .arrow_left {
   cursor: pointer;
   height: 60px;
-  left: -4px;
+  left: -16px;
   position: absolute;
-  top: 40%;
+  top: 38%;
   transform: translateX(-50%) translateY(-50%);
   transition: transform 0.1s;
   width: 50px;
   scale: 0.5;
-  transform: scale(-1, 1)
+  rotate: 180deg;
 }
 
 .arrow-top, .arrow-bottom {
   background-color: #666;
-  height: 4px;
+  height: 6px;
   left: -5px;
   position: absolute;
   top: 50%;
@@ -227,7 +227,7 @@ input {
   height: 100%;
   position: absolute;
   top: 0;
-  transition: all 0.15s;
+  transition: all 0.1s;
 }
 
 .arrow-top {
@@ -249,12 +249,12 @@ input {
 .arrow-bottom:after {
   left: 0;
   right: 100%;
-  transition-delay: 0.15s;
+  transition-delay: 0.1s;
 }
 
 .arrow_right:hover .arrow-top:after {
   left: 0;
-  transition-delay: 0.15s;
+  transition-delay: 0.1s;
 }
 
 .arrow_right:hover .arrow-bottom:after {
@@ -268,7 +268,7 @@ input {
 
 .arrow_left:hover .arrow-top:after {
   left: 0;
-  transition-delay: 0.15s;
+  transition-delay: 0.1s;
 }
 
 .arrow_left:hover .arrow-bottom:after {

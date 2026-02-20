@@ -185,8 +185,6 @@ async function getPromiseForEvoThree(checkPromise) {
 
 async function getEvoOne() {
   evoOne = evoPreLoad.chain.species.name.replace(/^./, char => char.toUpperCase());
-  // let outputOne = evoPreLoadCase.filter(employee => employee.name == `${evoPreLoad.chain.species.name}`);
-  // for (let i = 0; i < outputOne.length; i++) evoOneImg = outputOne[i].sprites.other.dream_world.front_default;
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${evoOne}`);
   let responseAsJson = await response.json();
   evoOneImg = await responseAsJson.sprites.other.dream_world.front_default;
@@ -194,8 +192,6 @@ async function getEvoOne() {
 
 async function getEvoTwo() {
   evoTwo = evoPreLoad.chain.evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
-  // let outputTwo = preLoadCase.filter(employee => employee.name == `${evoPreLoad.chain.evolves_to[0].species.name}`);
-  // for (let i = 0; i < outputTwo.length; i++) evoTwoImg = outputTwo[i].sprites.other.dream_world.front_default;
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${evoTwo}`);
   let responseAsJson = await response.json();
   evoTwoImg = await responseAsJson.sprites.other.dream_world.front_default;
@@ -204,12 +200,22 @@ async function getEvoTwo() {
 
 async function getEvoThree() {
   evoThree = evoPreLoad.chain.evolves_to[0].evolves_to[0].species.name.replace(/^./, char => char.toUpperCase());
-  // let outputThree = preLoadCase.filter(employee => employee.name == `${evoPreLoad.chain.evolves_to[0].evolves_to[0].species.name}`);
-  // for (let i = 0; i < outputThree.length; i++) evoThreeImg = outputThree[i].sprites.other.dream_world.front_default;
   let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${evoThree}`);
   let responseAsJson = await response.json();
   evoThreeImg = await responseAsJson.sprites.other.dream_world.front_default;
   isLastEvoThree = true;
+}
+
+// pre pokemon
+function loadPrePokemon(index) {
+  index--
+  if (index >= 0) showDetailedPokemonCard(index);
+}
+
+// post pokemon
+function loadPostPokemon(index) {
+  index++
+  if (index <= preLoadCase.length -1) showDetailedPokemonCard(index);
 }
 
 //close dialog
@@ -276,6 +282,3 @@ function renderPokemonCards(i) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
   };
 };
-
-// Arrows
-
