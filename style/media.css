@@ -1,0 +1,31 @@
+@media (max-width: 1091px) {
+  .header .max_width {
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header {
+    height: 150px;
+  }
+
+  .header .max_width {
+    position: absolute;
+    top: -10px;
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    scale: 0.7;
+  }
+
+  .main .max_width {
+    padding: 8px 0;
+  }
+
+  .card {
+    width: 250px;
+  }
+}

@@ -272,6 +272,7 @@ function searchPokemon() {
     render();
   }
   searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue);
+  clickOnPokemonName();
 }
 
 function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
@@ -296,4 +297,14 @@ function renderPokemonCardsBySerching(i) {
   if (preLoadCase[i].types.length > 1) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
   };
+};
+
+function clickOnPokemonName() {
+  addEventListener('click', (e) => {
+    for (let i = 0; i < preLoadCase.length; i++) {
+      if (e.target.outerText === preLoadCase[i].name) {
+        showDetailedPokemonCard(i);
+      };
+    };
+  });
 };
