@@ -89,7 +89,7 @@ async function renderAboutDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "flex";
-  refDetailSpace.style.height = "292px";
+  refDetailSpace.style.height = window.innerWidth <= 400 ? "243px" : "292px";
   refDetails.style.justifyContent = "start";
   refDetails.innerHTML = aboutDetails(index);
   renderAbilities(index);
@@ -111,7 +111,7 @@ function renderBaseStatesDetails(index) {
   let refDetailSpace = document.getElementById("detailSpace");
 
   refImg.style.display = "flex";
-  refDetailSpace.style.height = "292px";
+  refDetailSpace.style.height = window.innerWidth <= 400 ? "243px" : "292px";
   refDetails.style.justifyContent = "start";
   refDetails.innerHTML = baseStatesDetails(index);
   renderBeam(index);
@@ -141,7 +141,7 @@ async function renderEvolutionDetails(index) {
   refImg.style.display = "none";
   refDetails.innerHTML = loadingBall();
   refDetails.style.justifyContent = "center";
-  refDetailSpace.style.height = "526px";
+  refDetailSpace.style.height = window.innerWidth <= 400 ? "475px" : "526px";
 
   refEvoURL = await fetchEvolution(index);
   await tryCatchEvoTree();
@@ -234,9 +234,10 @@ function loadPostPokemon(index) {
 }
 
 //close dialog
-function closeDetailedPokemonCard() {
+function closeCard() {
   let refPokemonCard = document.getElementById("detailedPokemonCard");
   refPokemonCard.close();
+  document.getElementById("body").style.overflow = "scroll";
 }
 
 function backdropClose(dialog) {

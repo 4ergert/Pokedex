@@ -5,15 +5,9 @@
   left: 50%;
   width: 340px;
   height: 600px;
-  /* 320 x 568px */
   border-radius: 16px;
   border: 0px;
   box-shadow: 0px 0px 12px #ffffffaa;
-}
-
-.closeButtonSpace {
-  display: flex;
-  justify-content: end;
 }
 
 .detailedCard {
@@ -26,6 +20,28 @@
 
 .upperCardSpace {
   padding: 16px;
+}
+
+.upperCardSpace header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#closeCard {
+  font-size: 24px;
+  color: #666666;
+  background: none;
+  border: none;
+}
+
+#closeCard:hover {
+  cursor: pointer;
+  color: #ffffffa0;
+}
+
+#closeCard:active {
+  scale: 0.8;
 }
 
 .detailedCard h1 {

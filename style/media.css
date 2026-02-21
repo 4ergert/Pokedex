@@ -41,8 +41,14 @@
   .card figure {
     gap: 20px;
   }
+}
 
-  figure img {
-    scale: 0.8;
+@media (max-width: 400px) {
+  #detailedPokemonCard {
+    height: 550px;
+  }
+
+  .evolutionSpace h2 {
+    font-size: 18px;
   }
 }

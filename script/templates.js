@@ -39,6 +39,7 @@ function getTemplateDetailedPokemon(index) {
     <div class="upperCardSpace">
       <header>
         <h1>${pokemoName}</h1>
+        <button id="closeCard" type="button" onclick="closeCard()">X</button>
       </header>
       <section id="imgSpace" class="imageSpace">
         <img src="${preLoadCase[index].sprites.other.dream_world.front_default}" alt="">
