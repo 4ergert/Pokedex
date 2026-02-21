@@ -79,7 +79,7 @@ function renderArrowsInDetailedCards(index) {
   let arrowRight = document.getElementById("arrowRight");
 
   arrowLeft.style.display = index > 0 ? "flex" : "none";
-  arrowRight.style.display = index < preLoadCase.length -1 ? "flex" : "none";
+  arrowRight.style.display = index < preLoadCase.length - 1 ? "flex" : "none";
 }
 
 // render about Details
@@ -271,15 +271,25 @@ function searchPokemon() {
     document.getElementById("content").innerHTML = "";
     ul.style.display = "none";
     render();
+    showButton();
   }
   searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue);
   clickOnPokemonName();
 }
 
+function showButton() {
+  let refContent = document.getElementById("content");
+  let refShowMorePokemonsButton = document.getElementById("renderMorePokemons");
+  if (refContent.innerHTML !== "") {
+    refShowMorePokemonsButton.style.display = "flex";
+  };
+}
+
 function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
+  let refContent = document.getElementById("content");
   if (input.value.length > 2) {
     ul.style.display = "flex";
-    document.getElementById("content").innerHTML = "";
+    refContent.innerHTML = "";
     for (i = 0; i < li.length; i++) {
       a = li[i].getElementsByTagName("a")[0];
       txtValue = a.textContent || a.innerText;
@@ -290,10 +300,17 @@ function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
         li[i].style.display = "none";
       };
     };
+    pokemonNotFound(refContent);
   };
 };
 
 function renderPokemonCardsBySerching(i) {
+  let refContent = document.getElementById("content");
+  let refShowMorePokemonsButton = document.getElementById("renderMorePokemons");
+  if (refContent.innerHTML == "") {
+    refShowMorePokemonsButton.style.display = "none";
+  };
+
   document.getElementById("content").innerHTML += getCardTemplate(i);
   if (preLoadCase[i].types.length > 1) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
@@ -309,3 +326,12 @@ function clickOnPokemonName() {
     };
   });
 };
+
+function pokemonNotFound(refContent) {
+  let refShowMorePokemonsButton = document.getElementById("renderMorePokemons");
+
+  if (refContent.innerHTML == "") {
+    refContent.innerHTML = "Pokemon not found";
+    refShowMorePokemonsButton.style.display = "none";
+  }
+}
