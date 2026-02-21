@@ -60,6 +60,7 @@ input {
 }
 
 .container {
+  margin: 32px 0;
   width: 100%;
   height: 100%;
   display: flex;
@@ -185,8 +186,8 @@ input {
 }
 
 /* Arrows */
-
 /* From Uiverse.io by Nawsome */ 
+
 .arrow_right {
   cursor: pointer;
   height: 60px;

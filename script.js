@@ -14,9 +14,16 @@ let isSecEvoThree = false;
 let isLastEvoThree = false;
 
 async function fetchThenRender() {
+  const refLoadingBall = document.getElementById("loadingBall");
+  const refShowMorePokemonsButton = document.getElementById("renderMorePokemons");
+
   try {
+    refLoadingBall.style.display = "flex";
+    refShowMorePokemonsButton.style.display = "none";
     await fechtDataJSON();
     await getPromise();
+    refLoadingBall.style.display = "none";
+    refShowMorePokemonsButton.style.display = "flex";
     render();
     renderPokemonNames()
   } catch (error) {
@@ -276,7 +283,7 @@ function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
       txtValue = a.textContent || a.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         li[i].style.display = "";
-        renderPokemonCards(i);
+        renderPokemonCardsBySerching(i);
       } else {
         li[i].style.display = "none";
       };
@@ -284,7 +291,7 @@ function searchNshowPokemonNames(input, filter, ul, li, a, i, txtValue) {
   };
 };
 
-function renderPokemonCards(i) {
+function renderPokemonCardsBySerching(i) {
   document.getElementById("content").innerHTML += getCardTemplate(i);
   if (preLoadCase[i].types.length > 1) {
     document.getElementById(`types_${i}`).innerHTML += getTemplateSecType(i);
