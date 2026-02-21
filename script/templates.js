@@ -27,11 +27,11 @@ function getTemplateDetailedPokemon(index) {
   let pokemoName = preLoadCase[index].name.replace(/^./, char => char.toUpperCase());
 
   return `
-  <div class="arrow_left" onclick="loadPrePokemon(${index})">
+  <div id="arrowLeft" class="arrow_left" onclick="loadPrePokemon(${index})">
     <div class="arrow-top"></div>
     <div class="arrow-bottom"></div>
   </div>
-  <div class="arrow_right" onclick="loadPostPokemon(${index})">
+  <div id="arrowRight" class="arrow_right" onclick="loadPostPokemon(${index})">
     <div class="arrow-top"></div>
     <div class="arrow-bottom"></div>
   </div>

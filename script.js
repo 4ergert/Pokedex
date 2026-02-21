@@ -1,7 +1,7 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
 let evoPreLoad;
-let amountOfPokemons = 39;
+let amountOfPokemons = 12;
 let checkPromise
 let evoOne;
 let evoTwo;
@@ -25,7 +25,7 @@ async function fetchThenRender() {
 };
 
 async function fechtDataJSON() {
-  let more = preLoadCase.length + amountOfPokemons 
+  let more = preLoadCase.length + amountOfPokemons
   for (let pokemonIndex = 1 + preLoadCase.length; pokemonIndex <= more; pokemonIndex++) {
     let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonIndex}`);
     let responseAsJson = await response.json();
@@ -46,7 +46,7 @@ async function getPromise() {
 };
 
 function render() {
-  document.getElementById("content").innerHTML ='';
+  document.getElementById("content").innerHTML = '';
   for (let preLoadCaseIndex = 0; preLoadCaseIndex < preLoadCase.length; preLoadCaseIndex++) {
     document.getElementById("content").innerHTML += getCardTemplate(preLoadCaseIndex);
     if (preLoadCase[preLoadCaseIndex].types.length > 1) {
@@ -58,14 +58,22 @@ function render() {
 function showDetailedPokemonCard(index) {
   const refPokemonCard = document.getElementById("detailedPokemonCard");
 
-  location.href = `#`;
-  location.href = `#${index}`;
   document.getElementById("body").style.overflow = "hidden";
+  location.href = index !== 'undefined' ? `#${index}` : `#`;
   refPokemonCard.showModal();
   refPokemonCard.innerHTML = getTemplateDetailedPokemon(index);
+  renderArrowsInDetailedCards(index);
   renderAboutDetails(index);
   backdropClose(refPokemonCard);
 };
+
+function renderArrowsInDetailedCards(index) {
+  let arrowLeft = document.getElementById("arrowLeft");
+  let arrowRight = document.getElementById("arrowRight");
+
+  arrowLeft.style.display = index > 0 ? "flex" : "none";
+  arrowRight.style.display = index < preLoadCase.length -1 ? "flex" : "none";
+}
 
 // render about Details
 async function renderAboutDetails(index) {
@@ -215,7 +223,7 @@ function loadPrePokemon(index) {
 // post pokemon
 function loadPostPokemon(index) {
   index++
-  if (index <= preLoadCase.length -1) showDetailedPokemonCard(index);
+  if (index <= preLoadCase.length - 1) showDetailedPokemonCard(index);
 }
 
 //close dialog
