@@ -9,12 +9,20 @@
     height: 150px;
   }
 
+  .max_width {
+    width: 100%;
+  }
+
   .header .max_width {
     position: absolute;
     top: -10px;
     padding: 16px 24px;
     flex-direction: column;
     align-items: center;
+  }
+
+  #content {
+    gap: 12px;
   }
 
   .logo {
@@ -27,5 +35,14 @@
 
   .card {
     width: 250px;
+    gap: 8px;
+  }
+
+  .card figure {
+    gap: 20px;
+  }
+
+  figure img {
+    scale: 0.8;
   }
 }
