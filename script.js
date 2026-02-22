@@ -1,7 +1,7 @@
 let preLoadCase = [];
 let evoPreLoadCase = [];
 let evoPreLoad;
-let amountOfPokemons = 12;
+let amountOfPokemons = 33;
 let checkPromise
 let evoOne;
 let evoTwo;
